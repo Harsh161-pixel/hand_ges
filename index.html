@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandForge Lite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="panel">
+      <h1>HandForge Lite</h1>
+      <p class="muted">Tiny web 3D modeller + gesture control.</p>
+
+      <section>
+        <h2>Add</h2>
+        <div class="button-row">
+          <button data-add="box">Cube</button>
+          <button data-add="cylinder">Cylinder</button>
+          <button data-add="plane">Plane</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Transform</h2>
+        <div class="button-row">
+          <button data-mode="translate">Move</button>
+          <button data-mode="rotate">Rotate</button>
+          <button data-mode="scale">Scale</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Axis</h2>
+        <div class="button-row">
+          <button data-axis="all">All</button>
+          <button data-axis="x">X</button>
+          <button data-axis="y">Y</button>
+          <button data-axis="z">Z</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Mesh</h2>
+        <div class="button-row">
+          <button id="extrudeBtn">Extrude</button>
+          <button id="duplicateBtn">Duplicate</button>
+          <button id="deleteBtn">Delete</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Gesture Mapping</h2>
+        <p class="small">Open palm: Move mode</p>
+        <p class="small">Fist: Rotate mode</p>
+        <p class="small">Victory: Scale mode</p>
+        <p class="small">Thumbs up: Extrude</p>
+        <p class="small">Pointing: Add cube</p>
+        <p class="small">Pinch: Apply current transform step</p>
+      </section>
+
+      <section class="status-box">
+        <p><strong>Mode:</strong> <span id="modeText">translate</span></p>
+        <p><strong>Axis:</strong> <span id="axisText">all</span></p>
+        <p><strong>Gesture:</strong> <span id="gestureText">none</span></p>
+      </section>
+    </aside>
+
+    <main class="viewport-wrap">
+      <canvas id="stage"></canvas>
+      <video id="cam" autoplay playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div id="hint">Left click to select. Drag gizmo to edit mesh.</div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
